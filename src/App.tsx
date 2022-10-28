@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
+/*
+ ** src/components/App.tsx
+ */
+ import { Route, Link } from "react-router-dom";
+ import React from "react";
+import { Menu, ConfigProvider, Layout } from "antd";
+import zhCN from "antd/lib/locale/zh_CN";
+import RouteDom from "./router";
 
-function App() {
-  const [ count, setCounts ] = useState('')
-  const onChange = (e: any) => {
-    setCounts(e.target.value)
-  }
-  return (
-    <>
-      <h2>webpack5+react+ts</h2>
-      <p>受控组件</p>
-      <input type="text" value={count} onChange={onChange} />
-      <br />
-      <p>非受控组件</p>
-      <input type="text" />
-    </>
-  )
-}
-export default App
+ const App: React.FC = () => (
+   <ConfigProvider locale={zhCN}>
+         <div className="content">
+           <RouteDom />
+         </div>
+   </ConfigProvider>
+ );
+
+ export default App;
